@@ -17,6 +17,7 @@
     <modules>
         <module>flink-mysql</module>
         <module>kafka-demo</module>
+        <module>flink-examples</module>
     </modules>
 
     <name>springboot-study</name>
@@ -51,21 +52,5 @@
             <version>1.7</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

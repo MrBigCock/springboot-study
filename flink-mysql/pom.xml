@@ -11,41 +11,6 @@
     </parent>
 
     <artifactId>flink-mysql</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java_2.10</artifactId>
-            <version>1.1.3</version>
-        </dependency>
-        <!-- Use this dependency if you are using the DataSet API -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-java</artifactId>
-            <version>1.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-clients_2.10</artifactId>
-            <version>1.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table_2.10</artifactId>
-            <version>1.1.3</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.nd4j/nd4j-api -->
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka-0.8_2.10</artifactId>
-            <version>1.1.3</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.17</version>
-        </dependency>
-    </dependencies>
-
+    <packaging>jar</packaging>
 
 </project>
