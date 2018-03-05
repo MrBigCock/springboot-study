@@ -10,7 +10,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>kafka-demo</artifactId>
+    <artifactId>flink-kafka</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

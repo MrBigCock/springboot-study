@@ -19,9 +19,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>flink-mysql</module>
-        <module>kafka-demo</module>
         <module>flink-examples</module>
+        <module>flink-kafka</module>
+        <module>flink-kafka-mysql</module>
     </modules>
 
     <properties>
