@@ -14,96 +14,49 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java_2.10</artifactId>
-            <version>1.1.3</version>
-        </dependency>
         <!-- Use this dependency if you are using the DataSet API -->
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
-            <version>1.1.3</version>
+            <version>1.4.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-clients_2.10</artifactId>
-            <version>1.1.3</version>
+            <artifactId>flink-streaming-java_2.11</artifactId>
+            <version>1.4.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-clients -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table_2.10</artifactId>
-            <version>1.1.3</version>
+            <artifactId>flink-clients_2.11</artifactId>
+            <version>1.4.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.nd4j/nd4j-api -->
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka-0.10 -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka-0.8_2.10</artifactId>
-            <version>1.1.3</version>
+            <artifactId>flink-connector-kafka-0.10_2.11</artifactId>
+            <version>1.4.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-connector-elasticsearch-base -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-elasticsearch-base_2.11</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-table -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table_2.11</artifactId>
+            <version>1.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-java</artifactId>
-            <version>1.1.3</version>
+            <version>6.0.6</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <!-- get default data from flink-examples-batch package -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.9</version><!--$NO-MVN-MAN-VER$-->
-            </plugin>
-            <!-- self-contained jars for each example -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version><!--$NO-MVN-MAN-VER$-->
-                <executions>
-                    <!-- Default Execution -->
-                    <execution>
-                        <id>default</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-
-                    <!-- SocketWindowWordCount -->
-                    <execution>
-                        <id>SocketWindowWordCount</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>SocketWindowWordCount</classifier>
-
-                            <archive>
-                                <manifestEntries>
-                                    <program-class>com.coco.flink.examples.SocketWindowWordCount
-                                    </program-class>
-                                </manifestEntries>
-                            </archive>
-
-                            <includes>
-                                <include>com/coco/flink/examples/SocketWindowWordCount.class
-                                </include>
-                                <include>com/coco/flink/examples/SocketWindowWordCount$*.class
-                                </include>
-                            </includes>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
