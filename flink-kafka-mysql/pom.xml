@@ -10,7 +10,7 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>flink-kakfa-mysql</artifactId>
+    <artifactId>flink-kafka-mysql</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
