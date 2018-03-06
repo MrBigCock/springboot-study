@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.coco.flink.examples;
+package com.coco.flink.examples.table;
 
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
@@ -25,23 +25,20 @@ import org.apache.flink.table.api.TableEnvironment;
 import org.apache.flink.table.api.java.BatchTableEnvironment;
 
 /**
- * Simple example that shows how the Batch SQL API is used in Java.
+ * Simple example for demonstrating the use of the Table API for a Word Count in Java.
  * <p>
  * <p>This example shows how to:
  * - Convert DataSets to Tables
- * - Register a Table under a name
- * - Run a SQL query on the registered Table
+ * - Apply group, aggregate, select, and filter operations
  */
-public class WordCountSQL {
+public class WordCountTable {
 
     // *************************************************************************
     //     PROGRAM
     // *************************************************************************
 
     public static void main(String[] args) throws Exception {
-
-        // set up execution environment
-        ExecutionEnvironment env = ExecutionEnvironment.getExecutionEnvironment();
+        ExecutionEnvironment env = ExecutionEnvironment.createCollectionsEnvironment();
         BatchTableEnvironment tEnv = TableEnvironment.getTableEnvironment(env);
 
         DataSet<WC> input = env.fromElements(
@@ -49,14 +46,14 @@ public class WordCountSQL {
                 new WC("Ciao", 1),
                 new WC("Hello", 1));
 
-        // register the DataSet as table "WordCount"
-        tEnv.registerDataSet("WordCount", input, "word, frequency");
+        Table table = tEnv.fromDataSet(input);
 
-        // run a SQL query on the Table and retrieve the result as a new Table
-        Table table = tEnv.sqlQuery(
-                "SELECT word, SUM(frequency) as frequency FROM WordCount GROUP BY word");
+        Table filtered = table
+                .groupBy("word")
+                .select("word, frequency.sum as frequency")
+                .filter("frequency = 2");
 
-        DataSet<WC> result = tEnv.toDataSet(table, WC.class);
+        DataSet<WC> result = tEnv.toDataSet(filtered, WC.class);
 
         result.print();
     }

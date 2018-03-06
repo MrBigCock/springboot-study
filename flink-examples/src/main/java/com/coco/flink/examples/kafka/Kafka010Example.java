@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.coco.flink.examples;
+package com.coco.flink.examples.kafka;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.restartstrategy.RestartStrategies;

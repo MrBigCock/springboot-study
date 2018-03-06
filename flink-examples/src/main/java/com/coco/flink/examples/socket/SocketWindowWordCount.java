@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.coco.flink.examples;
+package com.coco.flink.examples.socket;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
