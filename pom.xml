@@ -22,6 +22,8 @@
         <module>flink-examples</module>
         <module>flink-kafka</module>
         <module>flink-kafka-mysql</module>
+        <module>kafka-example</module>
+        <module>spark-example</module>
     </modules>
 
     <properties>
